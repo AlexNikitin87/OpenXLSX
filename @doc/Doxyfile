@@ -871,9 +871,9 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is
 # run.
 
-EXCLUDE                = ../@library/@flat/ \
-                         ../@library/@xml/ \
-                         ../@library/@zip/ \
+EXCLUDE                = ../@library/implementation/@flat/ \
+                         ../@library/implementation/@xml/ \
+                         ../@library/implementation/@zip/ \
                          ../@benchmark \
                          ../@demo
                          ../@test

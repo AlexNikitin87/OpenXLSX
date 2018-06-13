@@ -14,8 +14,8 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(IS_MSVC TRUE)
 endif()
 
-add_subdirectory(@zip)
-add_subdirectory(@xml)
+add_subdirectory(implementation/@zip)
+add_subdirectory(implementation/@xml)
 
 #=======================================================================================================================
 # Set C/C++ compiler version
@@ -58,61 +58,61 @@ set(PROJECT_DESCRIPTION "A library for reading, writing and modifying Excel spre
 # Find project files
 #=======================================================================================================================
 set(OPENXLSX_HEADERS
-        headers/XLAbstractXMLFile.h
-        headers/XLAppProperties.h
-        headers/XLColor.h
-        headers/XLContentTypes.h
-        headers/XLCoreProperties.h
-        headers/XLDocument.h
-        headers/XLException.h
-        headers/XLFont.h
-        headers/XLRelationships.h
-        headers/XLSharedStrings.h
-        headers/XLSpreadsheetElement.h
-        headers/XLStyles.h
-        headers/XLTokenizer.h
-        headers/XLWorkbook.h
-        headers/XLChartsheet.h
-        headers/XLColumn.h
-        headers/XLRow.h
-        headers/XLSheet.h
-        headers/XLTemplate.h
-        headers/XLWorksheet.h
-        headers/XLCell.h
-        headers/XLCellFormats.h
-        headers/XLCellFormula.h
-        headers/XLCellIterator.h
-        headers/XLCellRange.h
-        headers/XLCellReference.h
-        headers/XLCellType.h
-        headers/XLCellValue.h)
+        implementation/headers/XLAbstractXMLFile.h
+        implementation/headers/XLAppProperties.h
+        implementation/headers/XLColor.h
+        implementation/headers/XLContentTypes.h
+        implementation/headers/XLCoreProperties.h
+        implementation/headers/XLDocument.h
+        implementation/headers/XLException.h
+        implementation/headers/XLFont.h
+        implementation/headers/XLRelationships.h
+        implementation/headers/XLSharedStrings.h
+        implementation/headers/XLSpreadsheetElement.h
+        implementation/headers/XLStyles.h
+        implementation/headers/XLTokenizer.h
+        implementation/headers/XLWorkbook.h
+        implementation/headers/XLChartsheet.h
+        implementation/headers/XLColumn.h
+        implementation/headers/XLRow.h
+        implementation/headers/XLSheet.h
+        implementation/headers/XLTemplate.h
+        implementation/headers/XLWorksheet.h
+        implementation/headers/XLCell.h
+        implementation/headers/XLCellFormats.h
+        implementation/headers/XLCellFormula.h
+        implementation/headers/XLCellIterator.h
+        implementation/headers/XLCellRange.h
+        implementation/headers/XLCellReference.h
+        implementation/headers/XLCellType.h
+        implementation/headers/XLCellValue.h)
 
 set(OPENXLSX_SOURCES
-        sources/XLAbstractXMLFile.cpp
-        sources/XLAppProperties.cpp
-        sources/XLColor.cpp
-        sources/XLContentTypes.cpp
-        sources/XLCoreProperties.cpp
-        sources/XLDocument.cpp
-        sources/XLFont.cpp
-        sources/XLRelationships.cpp
-        sources/XLSharedStrings.cpp
-        sources/XLSpreadsheetElement.cpp
-        sources/XLStyles.cpp
-        sources/XLTokenizer.cpp
-        sources/XLWorkbook.cpp
-        sources/XLChartsheet.cpp
-        sources/XLColumn.cpp
-        sources/XLRow.cpp
-        sources/XLSheet.cpp
-        sources/XLWorksheet.cpp
-        sources/XLCell.cpp
-        sources/XLCellFormats.cpp
-        sources/XLCellFormula.cpp
-        sources/XLCellIterator.cpp
-        sources/XLCellRange.cpp
-        sources/XLCellReference.cpp
-        sources/XLCellValue.cpp)
+        implementation/sources/XLAbstractXMLFile.cpp
+        implementation/sources/XLAppProperties.cpp
+        implementation/sources/XLColor.cpp
+        implementation/sources/XLContentTypes.cpp
+        implementation/sources/XLCoreProperties.cpp
+        implementation/sources/XLDocument.cpp
+        implementation/sources/XLFont.cpp
+        implementation/sources/XLRelationships.cpp
+        implementation/sources/XLSharedStrings.cpp
+        implementation/sources/XLSpreadsheetElement.cpp
+        implementation/sources/XLStyles.cpp
+        implementation/sources/XLTokenizer.cpp
+        implementation/sources/XLWorkbook.cpp
+        implementation/sources/XLChartsheet.cpp
+        implementation/sources/XLColumn.cpp
+        implementation/sources/XLRow.cpp
+        implementation/sources/XLSheet.cpp
+        implementation/sources/XLWorksheet.cpp
+        implementation/sources/XLCell.cpp
+        implementation/sources/XLCellFormats.cpp
+        implementation/sources/XLCellFormula.cpp
+        implementation/sources/XLCellIterator.cpp
+        implementation/sources/XLCellRange.cpp
+        implementation/sources/XLCellReference.cpp
+        implementation/sources/XLCellValue.cpp)
 
 #=======================================================================================================================
 # Build OpenXLSX library

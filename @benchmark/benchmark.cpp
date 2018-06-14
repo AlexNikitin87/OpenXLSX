@@ -13,7 +13,7 @@
 #include "../@library/implementation/headers/XLCellValue.h"
 
 using namespace std;
-using namespace OpenXLSX;
+using namespace OpenXLSX::Impl;
 using bprinter::TablePrinter;
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -113,7 +113,7 @@ unsigned long WriteTest(T value,
 
         // Create new document
         auto startOpen = chrono::steady_clock::now();
-        OpenXLSX::XLDocument doc;
+        XLDocument doc;
         doc.CreateDocument(fileName);
         auto endOpen = chrono::steady_clock::now();
 
@@ -172,7 +172,7 @@ unsigned long ReadTest(int repetitions, const std::string &fileName, ostream &de
     tp.AddColumn("Reading (ms)", 27);
     tp.AddColumn("Reading (cells/s)", 27);
 
-    OpenXLSX::XLDocument doc;
+    XLDocument doc;
     doc.OpenDocument(fileName);
     auto rows = doc.Workbook()->Worksheet("Sheet1")->RowCount();
     auto cols = doc.Workbook()->Worksheet("Sheet1")->ColumnCount();
@@ -196,7 +196,7 @@ unsigned long ReadTest(int repetitions, const std::string &fileName, ostream &de
 
         // Create new document
         auto startOpen = chrono::steady_clock::now();
-        OpenXLSX::XLDocument doc;
+        XLDocument doc;
         doc.OpenDocument(fileName);
         auto endOpen = chrono::steady_clock::now();
 
@@ -268,7 +268,7 @@ void openLarge() {
 
     auto start = chrono::steady_clock::now();
 
-    OpenXLSX::XLDocument doc;
+    XLDocument doc;
     doc.OpenDocument("./Large.xlsx");
     auto wks = doc.Workbook()->Worksheet("Sheet1");
     wks->Export("./Profiles.csv");

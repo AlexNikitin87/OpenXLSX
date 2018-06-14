@@ -54,7 +54,7 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #include <string>
 #include <vector>
 
-namespace OpenXLSX
+namespace OpenXLSX::Impl
 {
 
 /**
@@ -78,7 +78,7 @@ namespace OpenXLSX
          * @brief
          * @param other
          */
-        XLStyles(const OpenXLSX::XLStyles &other) = delete;
+        XLStyles(const OpenXLSX::Impl::XLStyles &other) = delete;
 
         /**
          * @brief
@@ -89,7 +89,7 @@ namespace OpenXLSX
          * @brief
          * @return
          */
-        XLStyles &operator=(const OpenXLSX::XLStyles &) = delete;
+        XLStyles &operator=(const OpenXLSX::Impl::XLStyles &) = delete;
 
         /**
          * @brief

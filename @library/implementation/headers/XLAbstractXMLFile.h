@@ -52,7 +52,7 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #include <map>
 #include "../@xml/xml.h"
 
-namespace OpenXLSX
+namespace OpenXLSX::Impl
 {
     class XLDocument;
 
@@ -90,7 +90,7 @@ namespace OpenXLSX
         /**
          * @brief Copy constructor. Default (shallow) implementation used.
          */
-        XLAbstractXMLFile(const OpenXLSX::XLAbstractXMLFile &) = delete;
+        XLAbstractXMLFile(const OpenXLSX::Impl::XLAbstractXMLFile &) = delete;
 
         /**
          * @brief Destructor. Default implementation used.
@@ -101,7 +101,7 @@ namespace OpenXLSX
          * @brief The assignment operator. The default implementation has been used.
          * @return A reference to the new object.
          */
-        XLAbstractXMLFile &operator=(const OpenXLSX::XLAbstractXMLFile &) = delete;
+        XLAbstractXMLFile &operator=(const OpenXLSX::Impl::XLAbstractXMLFile &) = delete;
 
         /**
          * @brief Provide the XML data represented by the object.

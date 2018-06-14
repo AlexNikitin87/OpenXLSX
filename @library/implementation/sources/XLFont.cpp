@@ -7,7 +7,7 @@
 #include <sstream>
 
 using namespace std;
-using namespace OpenXLSX;
+using namespace OpenXLSX::Impl;
 
 std::map<string, XLFont> XLFont::s_fonts = {};
 
@@ -37,7 +37,7 @@ XLFont::XLFont(const string &name,
 /**
  * @details
  */
-std::string OpenXLSX::XLFont::UniqueId() const
+std::string XLFont::UniqueId() const
 {
     stringstream str;
 

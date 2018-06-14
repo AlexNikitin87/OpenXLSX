@@ -5,47 +5,46 @@
 #include "../headers/XLSpreadsheetElement.h"
 #include "../headers/XLDocument.h"
 
-namespace OpenXLSX
+using namespace OpenXLSX::Impl;
+
+/**
+ * @details
+ */
+XLSpreadsheetElement::XLSpreadsheetElement(XLDocument &parent)
+    : m_document(&parent),
+      m_workbook(parent.Workbook())
 {
-    /**
-     * @details
-     */
-    XLSpreadsheetElement::XLSpreadsheetElement(XLDocument &parent)
-        : m_document(&parent),
-          m_workbook(parent.Workbook())
-    {
 
-    }
+}
 
-    /**
-     * @details
-     */
-    XLWorkbook *XLSpreadsheetElement::ParentWorkbook()
-    {
-        return const_cast<XLWorkbook *>(static_cast<const XLSpreadsheetElement *>(this)->ParentWorkbook());
-    }
+/**
+ * @details
+ */
+XLWorkbook *XLSpreadsheetElement::ParentWorkbook()
+{
+    return const_cast<XLWorkbook *>(static_cast<const XLSpreadsheetElement *>(this)->ParentWorkbook());
+}
 
-    /**
-     * @details
-     */
-    const XLWorkbook * XLSpreadsheetElement::ParentWorkbook() const
-    {
-        return m_workbook;
-    }
+/**
+ * @details
+ */
+const XLWorkbook * XLSpreadsheetElement::ParentWorkbook() const
+{
+    return m_workbook;
+}
 
-    /**
-     * @details
-     */
-    XLDocument * XLSpreadsheetElement::ParentDocument()
-    {
-        return const_cast<XLDocument *>(static_cast<const XLSpreadsheetElement *>(this)->ParentDocument());
-    }
+/**
+ * @details
+ */
+XLDocument * XLSpreadsheetElement::ParentDocument()
+{
+    return const_cast<XLDocument *>(static_cast<const XLSpreadsheetElement *>(this)->ParentDocument());
+}
 
-    /**
-     * @details
-     */
-    const XLDocument * XLSpreadsheetElement::ParentDocument() const
-    {
-        return m_document;
-    }
+/**
+ * @details
+ */
+const XLDocument * XLSpreadsheetElement::ParentDocument() const
+{
+    return m_document;
 }

@@ -6,7 +6,7 @@
 #include "../headers/XLWorksheet.h"
 
 using namespace std;
-using namespace OpenXLSX;
+using namespace OpenXLSX::Impl;
 
 /**
  * @details Assumes each node only has data for one column.

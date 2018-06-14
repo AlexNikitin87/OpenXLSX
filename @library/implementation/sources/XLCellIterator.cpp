@@ -7,7 +7,7 @@
 
 #include "../headers/XLCellRange.h"
 
-using namespace OpenXLSX;
+using namespace OpenXLSX::Impl;
 
 /*
  * =============================================================================================================

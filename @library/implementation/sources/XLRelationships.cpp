@@ -6,7 +6,7 @@
 #include "../headers/XLDocument.h"
 
 using namespace std;
-using namespace OpenXLSX;
+using namespace OpenXLSX::Impl;
 
 /**
  * @details Constructor. Initializes the member variables for the new XLRelationshipItem object.

@@ -2,13 +2,13 @@
 #include <chrono>
 #include <iomanip>
 //#include "../@library/OpenXLSX.h"
-#include "../@library/headers/XLDocument.h"
-#include "../@library/headers/XLWorksheet.h"
-#include "../@library/headers/XLCellRange.h"
-#include "../@library/headers/XLCellReference.h"
+#include "../@library/implementation/headers/XLDocument.h"
+#include "../@library/implementation/headers/XLWorksheet.h"
+#include "../@library/implementation/headers/XLCellRange.h"
+#include "../@library/implementation/headers/XLCellReference.h"
 
 using namespace std;
-using namespace OpenXLSX;
+using namespace OpenXLSX::Impl;
 
 /*
  * TODO: Sheet iterator
@@ -160,7 +160,7 @@ void openLarge() {
 
     auto start = chrono::steady_clock::now();
 
-    OpenXLSX::XLDocument doc;
+    XLDocument doc;
     doc.OpenDocument("./Large.xlsx");
     auto wks = doc.Workbook()->Worksheet("Sheet1");
     wks->Export("./Profiles.csv");
@@ -188,7 +188,7 @@ void speedTest() {
 
     for (int i = 1; i <= numIter; i++) {
 
-        OpenXLSX::XLDocument doc;
+        XLDocument doc;
         doc.CreateDocument("SpeedTest.xlsx");
         auto wks = doc.Workbook()->Worksheet("Sheet1");
         wks->Cell(1000, 1000)->Value().Set(1);

@@ -55,7 +55,7 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #include <memory>
 #include <map>
 
-namespace OpenXLSX
+namespace OpenXLSX::Impl
 {
 
 //======================================================================================================================
@@ -90,7 +90,7 @@ namespace OpenXLSX
          * @brief
          * @param other
          */
-        XLAppProperties(const OpenXLSX::XLAppProperties &other) = default;
+        XLAppProperties(const OpenXLSX::Impl::XLAppProperties &other) = default;
 
         /**
          * @brief

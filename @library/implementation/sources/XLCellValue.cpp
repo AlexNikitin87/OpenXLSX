@@ -8,7 +8,7 @@
 #include "../headers/XLException.h"
 #include "../headers/XLWorksheet.h"
 
-using namespace OpenXLSX;
+using namespace OpenXLSX::Impl;
 using namespace std;
 
 

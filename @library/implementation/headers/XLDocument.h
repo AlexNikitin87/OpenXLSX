@@ -60,6 +60,7 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #include "XLSheet.h"
 #include "XLRelationships.h"
 #include "XLException.h"
+#include "XLDocumentProperties.h"
 #include "../@zip/libzip++.h"
 
 namespace OpenXLSX::Impl
@@ -69,37 +70,7 @@ namespace OpenXLSX::Impl
     class XLWorkbook;
     class XLWorksheet;
 
-//======================================================================================================================
-//========== XLDocumentProperties Enum =================================================================================
-//======================================================================================================================
 
-    /**
-     * @brief The XLDocumentProperties class is an enumeration of the possible properties (metadata) that can be set
-     * for a XLDocument object (and .xlsx file)
-     */
-    enum class XLDocumentProperties
-    {
-        Title,
-        Subject,
-        Creator,
-        Keywords,
-        Description,
-        LastModifiedBy,
-        LastPrinted,
-        CreationDate,
-        ModificationDate,
-        Category,
-        Application,
-        DocSecurity,
-        ScaleCrop,
-        Manager,
-        Company,
-        LinksUpToDate,
-        SharedDoc,
-        HyperlinkBase,
-        HyperlinksChanged,
-        AppVersion
-    };
 
 //======================================================================================================================
 //========== XLDocument Class ==========================================================================================
@@ -225,7 +196,7 @@ namespace OpenXLSX::Impl
          */
         void DeleteProperty(const std::string &propertyName);
 
-        //----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 //           Protected Member Functions
 //----------------------------------------------------------------------------------------------------------------------
 

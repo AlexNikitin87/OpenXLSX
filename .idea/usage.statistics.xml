@@ -76,7 +76,7 @@
           <entry key="css" value="5" />
           <entry key="h" value="612" />
           <entry key="mm" value="2" />
-          <entry key="txt" value="38" />
+          <entry key="txt" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -85,7 +85,7 @@
           <entry key="CSS" value="5" />
           <entry key="Doxygen file" value="12" />
           <entry key="ObjectiveC" value="1542" />
-          <entry key="PLAIN_TEXT" value="54" />
+          <entry key="PLAIN_TEXT" value="82" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.cidr.testingFrameworks.usages" />

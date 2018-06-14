@@ -43,11 +43,12 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
  */
 
-#ifndef OPENXL_XLABSTRACTSHEET_H
-#define OPENXL_XLABSTRACTSHEET_H
+#ifndef OPENXLSX_IMPL_XLSHEET_H
+#define OPENXLSX_IMPL_XLSHEET_H
 
 #include "XLAbstractXMLFile.h"
 #include "XLSpreadsheetElement.h"
+#include "XLSheetProperties.h"
 
 namespace OpenXLSX::Impl
 {
@@ -56,31 +57,6 @@ namespace OpenXLSX::Impl
     class XLWorkbook;
 
 
-//======================================================================================================================
-//========== XLSheetType Enum ==========================================================================================
-//======================================================================================================================
-
-    /**
-     * @brief The XLSheetType class is an enumeration of the available sheet types, e.g. Worksheet (ordinary
-     * spreadsheets), and Chartsheet (sheets with only a chart).
-     */
-    enum class XLSheetType
-    {
-        WorkSheet, ChartSheet, DialogSheet, MacroSheet
-    };
-
-
-//======================================================================================================================
-//========== XLSheetState Enum =========================================================================================
-//======================================================================================================================
-
-    /**
-     * @brief The XLSheetState is an enumeration of the possible (visibility) states, e.g. Visible or Hidden.
-     */
-    enum class XLSheetState
-    {
-        Visible, Hidden, VeryHidden
-    };
 
 
 //======================================================================================================================
@@ -96,7 +72,6 @@ namespace OpenXLSX::Impl
                    public XLSpreadsheetElement
     {
         friend class XLWorkbook;
-        //friend class XLCell;
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -218,4 +193,4 @@ namespace OpenXLSX::Impl
     };
 }
 
-#endif //OPENXL_XLABSTRACTSHEET_H
+#endif //OPENXLSX_IMPL_XLSHEET_H

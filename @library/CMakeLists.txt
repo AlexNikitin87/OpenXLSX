@@ -85,7 +85,7 @@ set(OPENXLSX_HEADERS
         implementation/headers/XLCellRange.h
         implementation/headers/XLCellReference.h
         implementation/headers/XLCellType.h
-        implementation/headers/XLCellValue.h interface/XLWorkbook.h interface/XLDocument.h interface/XLDocumentProperties.h implementation/headers/XLDocumentProperties.h)
+        implementation/headers/XLCellValue.h interface/XLWorkbook.h interface/XLDocument.h interface/XLDocumentProperties.h implementation/headers/XLDocumentProperties.h interface/XLSheet.h interface/XLSheetProperties.h implementation/headers/XLSheetProperties.h)
 
 set(OPENXLSX_SOURCES
         implementation/sources/XLAbstractXMLFile.cpp

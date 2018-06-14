@@ -43,8 +43,8 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
  */
 
-#ifndef OPENXL_XLWORKBOOK_H
-#define OPENXL_XLWORKBOOK_H
+#ifndef OPENXLSX_IMPL_XLWORKBOOK_H
+#define OPENXLSX_IMPL_XLWORKBOOK_H
 
 #include "XLAbstractXMLFile.h"
 #include "XLRelationships.h"
@@ -390,4 +390,4 @@ namespace OpenXLSX::Impl
     };
 }
 
-#endif //OPENXL_XLWORKBOOK_H
+#endif //OPENXLSX_IMPL_XLWORKBOOK_H

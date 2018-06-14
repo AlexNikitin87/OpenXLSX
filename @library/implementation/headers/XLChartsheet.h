@@ -43,8 +43,8 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
  */
 
-#ifndef OPENXL_XLCHARTSHEET_H
-#define OPENXL_XLCHARTSHEET_H
+#ifndef OPENXLSX_IMPL_XLCHARTSHEET_H
+#define OPENXLSX_IMPL_XLCHARTSHEET_H
 
 #include "XLSheet.h"
 
@@ -100,4 +100,4 @@ namespace OpenXLSX::Impl
 
 }
 
-#endif //OPENXL_XLCHARTSHEET_H
+#endif //OPENXLSX_IMPL_XLCHARTSHEET_H

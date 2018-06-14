@@ -43,8 +43,8 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
  */
 
-#ifndef OPENXL_XLDOCUMENT_H
-#define OPENXL_XLDOCUMENT_H
+#ifndef OPENXLSX_IMPL_XLDOCUMENT_H
+#define OPENXLSX_IMPL_XLDOCUMENT_H
 
 #include <string>
 #include <map>
@@ -309,4 +309,4 @@ namespace OpenXLSX::Impl
 
 }
 
-#endif //OPENXL_XLDOCUMENT_H
+#endif //OPENXLSX_IMPL_XLDOCUMENT_H

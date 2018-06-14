@@ -43,8 +43,8 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
  */
 
-#ifndef OPENXL_XLDOCCOREPROPERTIES_H
-#define OPENXL_XLDOCCOREPROPERTIES_H
+#ifndef OPENXLSX_IMPL_XLCOREPROPERTIES_H
+#define OPENXLSX_IMPL_XLCOREPROPERTIES_H
 
 #include "XLAbstractXMLFile.h"
 #include "XLSpreadsheetElement.h"
@@ -151,4 +151,4 @@ namespace OpenXLSX::Impl
 
 }
 
-#endif //OPENXL_XLDOCCOREPROPERTIES_H
+#endif //OPENXLSX_IMPL_XLCOREPROPERTIES_H

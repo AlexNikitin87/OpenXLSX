@@ -43,8 +43,8 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
  */
 
-#ifndef OPENXL_XLSHAREDSTRINGS_H
-#define OPENXL_XLSHAREDSTRINGS_H
+#ifndef OPENXLSX_IMPL_XLSHAREDSTRINGS_H
+#define OPENXLSX_IMPL_XLSHAREDSTRINGS_H
 
 #include "XLAbstractXMLFile.h"
 #include "XLSpreadsheetElement.h"
@@ -169,4 +169,4 @@ namespace OpenXLSX::Impl
 
 }
 
-#endif //OPENXL_XLSHAREDSTRINGS_H
+#endif //OPENXLSX_IMPL_XLSHAREDSTRINGS_H

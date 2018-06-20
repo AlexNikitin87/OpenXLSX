@@ -15,12 +15,12 @@ namespace OpenXLSX
     {
     public:
         explicit XLDocument()
-            : m_document(std::make_unique<Impl::XLDocument>()) {}
+            : m_document(std::make_shared<Impl::XLDocument>()) {}
 
         explicit XLDocument(const std::string& name)
-            : m_document(std::make_unique<Impl::XLDocument>(name)) {}
+            : m_document(std::make_shared<Impl::XLDocument>(name)) {}
 
-        XLDocument(const XLDocument &other) = delete;
+        XLDocument(const XLDocument &other) = default;
 
         XLDocument(const XLDocument &&other) = default;
 
@@ -51,7 +51,7 @@ namespace OpenXLSX
          */
         void CloseDocument() {
             m_document->CloseDocument();
-            m_document.reset(nullptr);
+            m_document = nullptr;
         }
 
         /**
@@ -131,7 +131,7 @@ namespace OpenXLSX
         }
 
     private:
-        std::unique_ptr<Impl::XLDocument> m_document;
+        std::shared_ptr<Impl::XLDocument> m_document;
 
     };
 

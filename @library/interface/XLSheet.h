@@ -8,13 +8,16 @@
 #include "../implementation/headers/XLSheet.h"
 #include "XLSheetProperties.h"
 
-namespace OpenXLSX
-{
-    class XLSheet
-    {
+namespace OpenXLSX {
+    class XLSheet {
     public:
-        explicit XLSheet(Impl::XLSheet& sheet)
-            : m_sheet(&sheet) {}
+
+        /**
+         * @brief
+         * @param sheet
+         */
+        explicit XLSheet(Impl::XLSheet &sheet)
+                : m_sheet(&sheet) {}
 
         /**
           * @brief The copy constructor.
@@ -24,6 +27,10 @@ namespace OpenXLSX
           */
         XLSheet(const XLSheet &other) = default;
 
+        /**
+         * @brief
+         * @param other
+         */
         XLSheet(const XLSheet &&other) = default;
 
         /**
@@ -40,6 +47,11 @@ namespace OpenXLSX
          */
         XLSheet &operator=(const XLSheet &other) = default;
 
+        /**
+         * @brief
+         * @param other
+         * @return
+         */
         XLSheet &operator=(const XLSheet &&other) = default;
 
         /**
@@ -106,7 +118,7 @@ namespace OpenXLSX
         }
 
     private:
-        Impl::XLSheet* m_sheet;
+        Impl::XLSheet *m_sheet;
     };
 }
 

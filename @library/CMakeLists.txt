@@ -112,7 +112,7 @@ set(OPENXLSX_SOURCES
         implementation/sources/XLCellIterator.cpp
         implementation/sources/XLCellRange.cpp
         implementation/sources/XLCellReference.cpp
-        implementation/sources/XLCellValue.cpp)
+        implementation/sources/XLCellValue.cpp interface/XLChartsheet.h interface/XLWorksheet.h)
 
 #=======================================================================================================================
 # Build OpenXLSX library

@@ -67,7 +67,147 @@ namespace OpenXLSX
 
         XLWorksheet &operator=(const XLWorksheet &&other) = default;
 
+        /**
+         * @brief Get a pointer to the XLCell object for the given cell reference.
+         * @param ref An XLCellReference object with the address of the cell to get.
+         * @return A reference to the requested XLCell object.
+         */
+        XLCell *Cell(const XLCellReference &ref);
 
+        /**
+         * @brief Get a pointer to the XLCell object for the given cell reference.
+         * @param ref An XLCellReference object with the address of the cell to get.
+         * @return A const reference to the requested XLCell object.
+         */
+        const XLCell *Cell(const XLCellReference &ref) const;
+
+        /**
+         * @brief Get the cell with the given address
+         * @param address The address of the cell to get, e.g. 'A1'
+         * @return A reference to the XLCell object at the given address
+         */
+        XLCell *Cell(const std::string &address);
+
+        /**
+         * @brief Get the cell with the given address
+         * @param address The address of the cell to get, e.g. 'A1'
+         * @return A const reference to the XLCell object at the given address
+         */
+        const XLCell *Cell(const std::string &address) const;
+
+        /**
+         * @brief Get the cell at the given coordinates.
+         * @param rowNumber The row number (index base 1).
+         * @param columnNumber The column number (index base 1).
+         * @return A reference to the XLCell object at the given coordinates.
+         */
+        XLCell *Cell(unsigned long rowNumber,
+                     unsigned int columnNumber);
+
+        /**
+         * @brief Get the cell at the given coordinates.
+         * @param rowNumber The row number (index base 1).
+         * @param columnNumber The column number (index base 1).
+         * @return A const reference to the XLCell object at the given coordinates.
+         */
+        const XLCell *Cell(unsigned long rowNumber,
+                           unsigned int columnNumber) const;
+
+        /**
+         * @brief Get a range for the area currently in use (i.e. from cell A1 to the last cell being in use).
+         * @return An XLCellRange object with the entire range.
+         */
+        XLCellRange Range();
+
+        /**
+         * @brief Get a range for the area currently in use (i.e. from cell A1 to the last cell being in use).
+         * @return A const XLCellRange object with the entire range.
+         */
+        const XLCellRange Range() const;
+
+        /**
+         * @brief Get a range with the given coordinates.
+         * @param topLeft An XLCellReference object with the coordinates to the top left cell.
+         * @param bottomRight An XLCellReference object with the coordinates to the bottom right cell.
+         * @return An XLCellRange object with the requested range.
+         */
+        XLCellRange Range(const XLCellReference &topLeft,
+                          const XLCellReference &bottomRight);
+
+        /**
+         * @brief Get a range with the given coordinates.
+         * @param topLeft An XLCellReference object with the coordinates to the top left cell.
+         * @param bottomRight An XLCellReference object with the coordinates to the bottom right cell.
+         * @return A const XLCellRange object with the requested range.
+         */
+        const XLCellRange Range(const XLCellReference &topLeft,
+                                const XLCellReference &bottomRight) const;
+
+        /**
+         * @brief Get the row with the given row number.
+         * @param rowNumber The number of the row to retrieve.
+         * @return A pointer to the XLRow object.
+         */
+        XLRow *Row(unsigned long rowNumber);
+
+        /**
+         * @brief Get the row with the given row number.
+         * @param rowNumber The number of the row to retrieve.
+         * @return A const pointer to the XLRow object.
+         */
+        const XLRow *Row(unsigned long rowNumber) const;
+
+        /**
+         * @brief Get the column with the given column number.
+         * @param columnNumber The number of the column to retrieve.
+         * @return A pointer to the XLColumn object.
+         */
+        XLColumn *Column(unsigned int columnNumber);
+
+        /**
+         * @brief Get the column with the given column number.
+         * @param columnNumber The number of the column to retrieve.
+         * @return A const pointer to the XLColumn object.
+         */
+        const XLColumn *Column(unsigned int columnNumber) const;
+
+        /**
+         * @brief Get an XLCellReference to the first (top left) cell in the worksheet.
+         * @return An XLCellReference for the first cell.
+         */
+        XLCellReference FirstCell() const noexcept;
+
+        /**
+         * @brief Get an XLCellReference to the last (bottom right) cell in the worksheet.
+         * @return An XLCellReference for the last cell.
+         */
+        XLCellReference LastCell() const noexcept;
+
+        /**
+         * @brief Get the number of columns in the worksheet.
+         * @return The number of columns.
+         */
+        unsigned int ColumnCount() const noexcept;
+
+        /**
+         * @brief Get the number of rows in the worksheet.
+         * @return The number of rows.
+         */
+        unsigned long RowCount() const noexcept;
+
+        /**
+         * @brief
+         * @param fileName
+         * @param delimiter
+         */
+        void Export(const std::string &fileName, char decimal = ',', char delimiter = ';');
+
+        /**
+         * @brief
+         * @param fileName
+         * @param delimiter
+         */
+        void Import(const std::string &fileName, const std::string &delimiter = ";");
 
     };
 

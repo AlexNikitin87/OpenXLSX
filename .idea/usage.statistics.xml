@@ -8,7 +8,7 @@
           <entry key="c" value="1" />
           <entry key="cpp" value="34" />
           <entry key="css" value="4" />
-          <entry key="h" value="39" />
+          <entry key="h" value="45" />
           <entry key="html" value="1" />
           <entry key="markdown" value="1" />
           <entry key="txt" value="1" />
@@ -21,7 +21,7 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="1" />
           <entry key="Markdown" value="1" />
-          <entry key="ObjectiveC" value="74" />
+          <entry key="ObjectiveC" value="80" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="XML" value="1" />
         </counts>
@@ -31,8 +31,8 @@
           <entry key="Doxyfile" value="137" />
           <entry key="cpp" value="669" />
           <entry key="css" value="155" />
-          <entry key="h" value="3306" />
-          <entry key="txt" value="26" />
+          <entry key="h" value="3754" />
+          <entry key="txt" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -40,8 +40,8 @@
           <entry key="CMakeLists.txt" value="26" />
           <entry key="CSS" value="155" />
           <entry key="Doxygen file" value="43" />
-          <entry key="ObjectiveC" value="3932" />
-          <entry key="PLAIN_TEXT" value="137" />
+          <entry key="ObjectiveC" value="4380" />
+          <entry key="PLAIN_TEXT" value="155" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.cidr.testingFrameworks.usages" />

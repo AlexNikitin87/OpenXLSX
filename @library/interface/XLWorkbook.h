@@ -7,6 +7,9 @@
 
 
 #include "../implementation/headers/XLWorkbook.h"
+#include "XLSheet.h"
+#include "XLWorksheet.h"
+#include "XLChartsheet.h"
 
 namespace OpenXLSX
 {
@@ -59,7 +62,7 @@ namespace OpenXLSX
          * @todo This method is currently unimplemented.
          * @todo What should happen if the index is invalid?
          */
-        XLSheet *Sheet(unsigned int index);
+        XLSheet Sheet(unsigned int index) { return XLSheet(*m_workbook->Sheet(index)); }
 
         /**
          * @brief Get the sheet (worksheet or chartsheet) with the given name.
@@ -68,48 +71,48 @@ namespace OpenXLSX
          * @todo This method is currently unimplemented.
          * @todo What should happen if the name is invalid?
          */
-        XLSheet *Sheet(const std::string &sheetName);
+        XLSheet Sheet(const std::string &sheetName) { return XLSheet(*m_workbook->Sheet(sheetName)); }
 
         /**
          * @brief
          * @param sheetName
          * @return
          */
-        XLWorksheet *Worksheet(const std::string &sheetName);
+        XLWorksheet Worksheet(const std::string &sheetName) { return XLWorksheet(*m_workbook->Worksheet(sheetName)); }
 
         /**
          * @brief
          * @param sheetName
          * @return
          */
-        const XLWorksheet *Worksheet(const std::string &sheetName) const;
+        const XLWorksheet Worksheet(const std::string &sheetName) const { return XLWorksheet(*m_workbook->Worksheet(sheetName)); }
 
         /**
          * @brief
          * @param sheetName
          * @return
          */
-        XLChartsheet *Chartsheet(const std::string &sheetName);
+        XLChartsheet Chartsheet(const std::string &sheetName) { return XLChartsheet(*m_workbook->Chartsheet(sheetName)); }
 
         /**
          * @brief
          * @param sheetName
          * @return
          */
-        const XLChartsheet *Chartsheet(const std::string &sheetName) const;
+        const XLChartsheet Chartsheet(const std::string &sheetName) const { return XLChartsheet(*m_workbook->Chartsheet(sheetName)); }
 
         /**
          * @brief
          * @param sheetName
          */
-        void DeleteSheet(const std::string &sheetName);
+        void DeleteSheet(const std::string &sheetName) { m_workbook->DeleteSheet(sheetName); }
 
         /**
          * @brief Add a new worksheet to the workbook, with the given name and index.
          * @param sheetName The name of the worksheet.
          * @param index The index at which the worksheet should be inserted.
          */
-        void AddWorksheet(const std::string &sheetName, unsigned int index = 0);
+        void AddWorksheet(const std::string &sheetName, unsigned int index = 0) { m_workbook->AddWorksheet(sheetName, index); }
 
         /**
          * @brief Clone an existing worksheet.
@@ -121,7 +124,7 @@ namespace OpenXLSX
          */
         void CloneWorksheet(const std::string &extName,
                             const std::string &newName,
-                            unsigned int index = 0);
+                            unsigned int index = 0) { m_workbook->CloneWorksheet(extName, newName, index); }
 
         /**
          * @brief Add a new chartsheet to the workbook, with the given name and index.
@@ -129,71 +132,71 @@ namespace OpenXLSX
          * @param index The index at which the chartsheet should be inserted.
          * @todo This method is currently unimplemented.
          */
-        void AddChartsheet(const std::string &sheetName, unsigned int index = 0);
+        void AddChartsheet(const std::string &sheetName, unsigned int index = 0) { m_workbook->AddChartsheet(sheetName, index); }
 
         /**
          * @brief
          * @param index
          */
-        void MoveSheet(unsigned int index);
+        void MoveSheet(unsigned int index) { m_workbook->MoveSheet(index); }
 
         /**
          * @brief
          * @param sheetName
          * @return
          */
-        unsigned int IndexOfSheet(const std::string &sheetName);
+        unsigned int IndexOfSheet(const std::string &sheetName) { return m_workbook->IndexOfSheet(sheetName); }
 
         /**
          * @brief
          * @param sheetName
          * @param index
          */
-        void SetIndexOfSheet(const std::string &sheetName, unsigned int index);
+        void SetIndexOfSheet(const std::string &sheetName, unsigned int index) {m_workbook->SetIndexOfSheet(sheetName, index); }
 
         /**
          * @brief
          * @return
          */
-        unsigned int SheetCount() const;
+        unsigned int SheetCount() const { return m_workbook->SheetCount(); }
 
         /**
          * @brief
          * @return
          */
-        unsigned int WorksheetCount() const;
+        unsigned int WorksheetCount() const { return m_workbook->WorksheetCount(); }
 
         /**
          * @brief
          * @return
          */
-        unsigned int ChartsheetCount() const;
+        unsigned int ChartsheetCount() const { return m_workbook->ChartsheetCount(); }
 
         /**
          * @brief
          * @param sheetName
          * @return
          */
-        bool SheetExists(const std::string &sheetName) const;
+        bool SheetExists(const std::string &sheetName) const { return m_workbook->SheetExists(sheetName); }
 
         /**
          * @brief
          * @param sheetName
          * @return
          */
-        bool WorksheetExists(const std::string &sheetName) const;
+        bool WorksheetExists(const std::string &sheetName) const { return m_workbook->WorksheetExists(sheetName); }
 
         /**
          * @brief
          * @param sheetName
          * @return
          */
-        bool ChartsheetExists(const std::string &sheetName) const;
+        bool ChartsheetExists(const std::string &sheetName) const { return m_workbook->ChartsheetExists(sheetName); }
 
         /**
          * @brief
          */
-        void DeleteNamedRanges();
+        void DeleteNamedRanges() {m_workbook->DeleteNamedRanges(); }
 
 
     private:

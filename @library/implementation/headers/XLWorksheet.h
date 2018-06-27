@@ -87,7 +87,7 @@ namespace OpenXLSX::Impl
     /**
      * @brief A class encapsulating an Excel worksheet. Access to XLWorksheet objects should be via the workbook object.
      */
-    class XLWorksheet: public XLSheet
+    class XLWorksheet : public XLSheet
     {
         friend class XLCell;
         friend class XLRow;

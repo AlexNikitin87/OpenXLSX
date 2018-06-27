@@ -47,6 +47,8 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #define OPENXLSX_ALL_XLWORKSHEET_H
 
 #include "XLSheet.h"
+#include "XLCellReference.h"
+#include "XLCell.h"
 
 namespace OpenXLSX
 {
@@ -59,20 +61,20 @@ namespace OpenXLSX
 
         XLWorksheet(const XLWorksheet &other) = default;
 
-        XLWorksheet(const XLWorksheet &&other) = default;
+        XLWorksheet(XLWorksheet &&other) = default;
 
         virtual ~XLWorksheet() = default;
 
         XLWorksheet &operator=(const XLWorksheet &other) = default;
 
-        XLWorksheet &operator=(const XLWorksheet &&other) = default;
+        XLWorksheet &operator=(XLWorksheet &&other) = default;
 
         /**
          * @brief Get a pointer to the XLCell object for the given cell reference.
          * @param ref An XLCellReference object with the address of the cell to get.
          * @return A reference to the requested XLCell object.
          */
-        XLCell *Cell(const XLCellReference &ref);
+        XLCell Cell(const XLCellReference &ref) { return XLCell(static_cast<Impl::XLWorksheet*>(m_sheet).Cell(ref)); }
 
         /**
          * @brief Get a pointer to the XLCell object for the given cell reference.

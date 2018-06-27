@@ -99,14 +99,6 @@ namespace OpenXLSX::Impl
                                  unsigned int column);
 
         /**
-         * @brief Constructor taking the row number and the column letter as arguments.
-         * @param row The row number of the cell.
-         * @param column The column letter of the cell.
-         */
-        explicit XLCellReference(unsigned long row,
-                                 const std::string &column);
-
-        /**
          * @brief Copy constructor
          * @param other The object to be copied.
          */

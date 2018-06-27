@@ -78,29 +78,6 @@ XLCellReference::XLCellReference(unsigned long row,
 }
 
 /**
- * @details This constructor creates a new XLCellReference from a row number and the column name (e.g. 1, A)
- * @todo consider swapping the arguments.
- */
-XLCellReference::XLCellReference(unsigned long row,
-                                 const std::string &column)
-    : m_row(row),
-      m_column(ColumnAsNumber(column)),
-      m_cellAddress(
-          column + RowAsString(row)),
-      m_valid(false)
-{
-    if (m_row < 1 || m_row > 1048576 || m_column < 1 || m_column > 16384) {
-        m_row = 0;
-        m_column = 0;
-        m_cellAddress = "";
-        m_valid = false;
-    }
-    else {
-        m_valid = true;
-    }
-}
-
-/**
  * @details Returns the m_row property.
  */
 unsigned long XLCellReference::Row() const

@@ -31,7 +31,7 @@ namespace OpenXLSX {
          * @brief
          * @param other
          */
-        XLSheet(const XLSheet &&other) = default;
+        XLSheet(XLSheet &&other) = default;
 
         /**
          * @brief The destructor
@@ -52,7 +52,7 @@ namespace OpenXLSX {
          * @param other
          * @return
          */
-        XLSheet &operator=(const XLSheet &&other) = default;
+        XLSheet &operator=(XLSheet &&other) = default;
 
         /**
          * @brief Method to retrieve the name of the sheet.
@@ -107,7 +107,7 @@ namespace OpenXLSX {
             m_sheet->SetIndex();
         }
 
-    private:
+    protected:
         Impl::XLSheet *m_sheet;
     };
 }

@@ -85,7 +85,17 @@ set(OPENXLSX_HEADERS
         implementation/headers/XLCellRange.h
         implementation/headers/XLCellReference.h
         implementation/headers/XLCellType.h
-        implementation/headers/XLCellValue.h interface/XLWorkbook.h interface/XLDocument.h interface/XLDocumentProperties.h implementation/headers/XLDocumentProperties.h interface/XLSheet.h interface/XLSheetProperties.h implementation/headers/XLSheetProperties.h)
+        implementation/headers/XLCellValue.h
+        implementation/headers/XLDocumentProperties.h
+        implementation/headers/XLSheetProperties.h
+        interface/XLDocumentProperties.h
+        interface/XLSheet.h
+        interface/XLSheetProperties.h
+        interface/XLWorkbook.h
+        interface/XLDocument.h
+        interface/XLCellReference.h
+        interface/XLChartsheet.h
+        interface/XLWorksheet.h)
 
 set(OPENXLSX_SOURCES
         implementation/sources/XLAbstractXMLFile.cpp
@@ -112,7 +122,7 @@ set(OPENXLSX_SOURCES
         implementation/sources/XLCellIterator.cpp
         implementation/sources/XLCellRange.cpp
         implementation/sources/XLCellReference.cpp
-        implementation/sources/XLCellValue.cpp interface/XLChartsheet.h interface/XLWorksheet.h)
+        implementation/sources/XLCellValue.cpp)
 
 #=======================================================================================================================
 # Build OpenXLSX library

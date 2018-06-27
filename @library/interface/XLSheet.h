@@ -58,41 +58,31 @@ namespace OpenXLSX {
          * @brief Method to retrieve the name of the sheet.
          * @return A std::string with the sheet name.
          */
-        virtual const std::string &Name() const {
-            return m_sheet->Name();
-        }
+        virtual const std::string &Name() const { return m_sheet->Name(); }
 
         /**
          * @brief Method for renaming the sheet.
          * @param name A std::string with the new name.
          */
-        virtual void SetName(const std::string &name) {
-            m_sheet->SetName(name);
-        }
+        virtual void SetName(const std::string &name) { m_sheet->SetName(name); }
 
         /**
          * @brief Method for getting the current visibility state of the sheet.
          * @return An XLSheetState enum object, with the current sheet state.
          */
-        virtual const XLSheetState &State() const {
-            return m_sheet->State();
-        }
+        virtual const XLSheetState &State() const { return m_sheet->State(); }
 
         /**
          * @brief Method for setting the state of the sheet.
          * @param state An XLSheetState enum object with the new state.
          */
-        virtual void SetState(XLSheetState state) {
-            m_sheet->SetState(state);
-        }
+        virtual void SetState(XLSheetState state) { m_sheet->SetState(state); }
 
         /**
          * @brief Method to get the type of the sheet.
          * @return An XLSheetType enum object with the sheet type.
          */
-        virtual const XLSheetType &Type() const {
-            return m_sheet->Type();
-        }
+        virtual const XLSheetType &Type() const { return m_sheet->Type(); }
 
         /**
          * @brief Method for cloning the sheet.

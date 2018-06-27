@@ -88,7 +88,7 @@ namespace OpenXLSX::Impl
          * @brief Constructor taking a cell address as argument.
          * @param cellAddress The address of the cell, e.g. 'A1'.
          */
-        XLCellReference(const std::string &cellAddress = "");
+        explicit XLCellReference(const std::string &cellAddress = "");
 
         /**
          * @brief Constructor taking the cell coordinates as arguments.

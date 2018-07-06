@@ -48,6 +48,7 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
 #include "../implementation/headers/XLCellRange.h"
 #include "XLCell.h"
+#include "XLCellIterator.h"
 namespace OpenXLSX {
 
     class XLCellRange
@@ -155,6 +156,7 @@ namespace OpenXLSX {
          * @brief
          */
         void Clear();
+
 
     private:
         Impl::XLCellRange* m_range;

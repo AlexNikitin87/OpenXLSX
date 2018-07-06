@@ -96,7 +96,9 @@ set(OPENXLSX_HEADERS
         interface/XLCellReference.h
         interface/XLChartsheet.h
         interface/XLWorksheet.h
-        interface/XLCell.h interface/XLCellRange.h)
+        interface/XLCell.h
+        interface/XLCellRange.h
+        interface/XLCellIterator.h)
 
 set(OPENXLSX_SOURCES
         implementation/sources/XLAbstractXMLFile.cpp

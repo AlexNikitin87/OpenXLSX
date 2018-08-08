@@ -12,7 +12,7 @@ namespace OpenXLSX
      */
     XLSpreadsheetElement::XLSpreadsheetElement(XLDocument &parent)
         : m_document(&parent),
-          m_workbook(parent.Workbook())
+          m_workbook(&parent.Workbook())
     {
 
     }

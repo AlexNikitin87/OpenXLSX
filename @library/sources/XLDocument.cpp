@@ -173,17 +173,17 @@ std::string XLDocument::DocumentPath() const
 /**
  * @details Get a pointer to the underlying XLWorkbook object.
  */
-XLWorkbook *XLDocument::Workbook()
+XLWorkbook &XLDocument::Workbook()
 {
-    return m_workbook.get();
+    return *m_workbook;
 }
 
 /**
  * @details Get a const pointer to the underlying XLWorkbook object.
  */
-const XLWorkbook *XLDocument::Workbook() const
+const XLWorkbook &XLDocument::Workbook() const
 {
-    return m_workbook.get();
+    return *m_workbook;
 }
 
 /**

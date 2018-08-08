@@ -28,7 +28,7 @@ int main()
 {
     XLDocument doc;
     doc.CreateDocument("./MyTest.xlsx");
-    auto wks = doc.Workbook()->Worksheet("Sheet1");
+    auto wks = doc.Workbook().Worksheet("Sheet1");
 
     wks->Cell("A1")->Value() = 3.14159;
     wks->Cell("B1")->Value() = 42;

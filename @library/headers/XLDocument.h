@@ -196,13 +196,13 @@ namespace OpenXLSX
          * @brief Get the underlying workbook object.
          * @return A pointer to the XLWorkbook object
          */
-        XLWorkbook *Workbook();
+        XLWorkbook &Workbook();
 
         /**
          * @brief Get the underlying workbook object, as a const object.
          * @return A const pointer to the XLWorkbook object.
          */
-        const XLWorkbook *Workbook() const;
+        const XLWorkbook &Workbook() const;
 
         /**
          * @brief Get the requested document property.

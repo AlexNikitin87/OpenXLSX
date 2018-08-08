@@ -9,6 +9,10 @@
 #include "XLSheetProperties.h"
 
 namespace OpenXLSX {
+
+    /**
+     * @brief
+     */
     class XLSheet {
     public:
 

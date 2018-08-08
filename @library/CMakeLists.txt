@@ -87,18 +87,7 @@ set(OPENXLSX_HEADERS
         implementation/headers/XLCellType.h
         implementation/headers/XLCellValue.h
         implementation/headers/XLDocumentProperties.h
-        implementation/headers/XLSheetProperties.h
-        interface/XLDocumentProperties.h
-        interface/XLSheet.h
-        interface/XLSheetProperties.h
-        interface/XLWorkbook.h
-        interface/XLDocument.h
-        interface/XLCellReference.h
-        interface/XLChartsheet.h
-        interface/XLWorksheet.h
-        interface/XLCell.h
-        interface/XLCellRange.h
-        interface/XLCellIterator.h)
+        implementation/headers/XLSheetProperties.h)
 
 set(OPENXLSX_SOURCES
         implementation/sources/XLAbstractXMLFile.cpp
@@ -127,11 +116,24 @@ set(OPENXLSX_SOURCES
         implementation/sources/XLCellReference.cpp
         implementation/sources/XLCellValue.cpp)
 
+set(OPENXLSX_INTERFACES
+        interface/XLDocumentProperties.h
+        interface/XLSheet.h
+        interface/XLSheetProperties.h
+        interface/XLWorkbook.h
+        interface/XLDocument.h
+        interface/XLCellReference.h
+        interface/XLChartsheet.h
+        interface/XLWorksheet.h
+        interface/XLCell.h
+        interface/XLCellRange.h
+        interface/XLCellIterator.h)
+
 #=======================================================================================================================
 # Build OpenXLSX library
 #=======================================================================================================================
 add_library(OpenXLSXDepend STATIC $<TARGET_OBJECTS:xml> $<TARGET_OBJECTS:zlibstatic> $<TARGET_OBJECTS:zip> $<TARGET_OBJECTS:zip++>)
-add_library(OpenXLSX STATIC ${OPENXLSX_HEADERS} ${OPENXLSX_SOURCES})
+add_library(OpenXLSX STATIC ${OPENXLSX_HEADERS} ${OPENXLSX_SOURCES} ${OPENXLSX_INTERFACES})
 target_link_libraries(OpenXLSX PRIVATE OpenXLSXDepend)
 
 #=======================================================================================================================

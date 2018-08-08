@@ -6,9 +6,10 @@
 #include "../@library/implementation/headers/XLWorksheet.h"
 #include "../@library/implementation/headers/XLCellRange.h"
 #include "../@library/implementation/headers/XLCellReference.h"
+#include "../@library/interface/XLDocument.h"
 
 using namespace std;
-using namespace OpenXLSX::Impl;
+using namespace OpenXLSX;
 
 /*
  * TODO: Sheet iterator
@@ -25,6 +26,7 @@ using namespace OpenXLSX::Impl;
  */
 
 void myTest();
+void interfaceTest();
 void simpleTest();
 void openLarge();
 void speedTest();
@@ -36,7 +38,8 @@ void printRange();
 
 int main()
 {
-    myTest();
+    //myTest();
+    interfaceTest();
     //simpleTest();
     //openLarge();
     //speedTest();
@@ -61,7 +64,7 @@ int main()
 
 void myTest()
 {
-    XLDocument doc;
+    Impl::XLDocument doc;
     doc.CreateDocument("./MyTest.xlsx");
     auto wks = doc.Workbook()->Worksheet("Sheet1");
 
@@ -83,8 +86,12 @@ void myTest()
     doc.SaveDocument();
 }
 
+void interfaceTest() {
+    //XLDocument
+}
+
 void simpleTest() {
-    XLDocument doc;
+    Impl::XLDocument doc;
     doc.CreateDocument("./Spreadsheet.xlsx");
 
     doc.Workbook()->AddWorksheet("Floats");
@@ -126,7 +133,7 @@ void simpleTest() {
     doc.SaveDocument();
     doc.CloseDocument();
 
-    XLDocument rdoc;
+    Impl::XLDocument rdoc;
     rdoc.OpenDocument("./Spreadsheet.xlsx");
 
     cout << "Content of worksheet 'Floats', cell B2: " << rdoc.Workbook()->Worksheet("Floats")->Cell("B2")->Value().AsString() << endl;
@@ -141,7 +148,7 @@ void simpleTest() {
 
     rdoc.CloseDocument();
 
-    XLDocument ndoc;
+    Impl::XLDocument ndoc;
     ndoc.CreateDocument("./NewSpreadsheet.xlsx");
 
     ndoc.Workbook()->AddWorksheet("Integers");
@@ -160,7 +167,7 @@ void openLarge() {
 
     auto start = chrono::steady_clock::now();
 
-    XLDocument doc;
+    Impl::XLDocument doc;
     doc.OpenDocument("./Large.xlsx");
     auto wks = doc.Workbook()->Worksheet("Sheet1");
     wks->Export("./Profiles.csv");
@@ -188,7 +195,7 @@ void speedTest() {
 
     for (int i = 1; i <= numIter; i++) {
 
-        XLDocument doc;
+        Impl::XLDocument doc;
         doc.CreateDocument("SpeedTest.xlsx");
         auto wks = doc.Workbook()->Worksheet("Sheet1");
         wks->Cell(1000, 1000)->Value().Set(1);

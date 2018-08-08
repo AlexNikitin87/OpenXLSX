@@ -13,6 +13,10 @@
 
 namespace OpenXLSX
 {
+    /**
+     * @brief An interface class to an Impl::XLWorkbook object. This class holds a raw pointer to the underlying
+     * Impl::XLWorkbook object. Destruction will be handled by the classes in the Impl namespace.
+     */
     class XLWorkbook
     {
     public:

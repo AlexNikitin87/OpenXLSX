@@ -51,46 +51,50 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #include "XLDocumentProperties.h"
 
 namespace OpenXLSX {
+
     /**
-     * @brief
+     * @brief This is an interface (or handle) class for the Impl::XLDocument class. It holds a std::shared_ptr to the
+     * underlying Impl::XLDocument object, enabling passing around the resource in a an easy manner.
+     * @note Bear in mind that copying the interface class does not copy the underlying resource; the copy will still
+     * reference the original resource.
      */
     class XLDocument {
     public:
 
         /**
-         * @brief
+         * @brief Constructor. Creates an object with a shared_ptr to a new Impl::XLDocument.
          */
         explicit XLDocument()
                 : m_document(std::make_shared<Impl::XLDocument>()) {}
 
         /**
-         * @brief
-         * @param name
+         * @brief Constructor. Creates an object with a shared_ptr to a new Impl::XLDocument and opens the document with
+         * the given name.
+         * @param name The name of the document to open.
          */
         explicit XLDocument(const std::string &name)
                 : m_document(std::make_shared<Impl::XLDocument>(name)) {}
 
         /**
-         * @brief
-         * @param other
+         * @brief Copy constructor. Uses default implementation.
+         * @param other The object to be copied.
          */
         XLDocument(const XLDocument &other) = default;
 
         /**
-         * @brief
-         * @param other
+         * @brief Move Constructor. Uses default implementation.
+         * @param other The object moved.
          */
         XLDocument(const XLDocument &&other) = default;
 
         /**
-         * @brief Destructor
+         * @brief Destructor. Uses default implementation
          */
         virtual ~XLDocument() = default;
 
         /**
-         * @brief Open the .xlsx file with the given path
-         * @param fileName The path of the .xlsx file to open
-         * @todo Consider opening the zipped files as streams, instead of unpacking to a temporary folder
+         * @brief Open the .xlsx file with the given path.
+         * @param fileName The path of the .xlsx file to open.
          */
         void OpenDocument(const std::string &fileName) {
             m_document->OpenDocument(fileName);

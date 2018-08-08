@@ -49,10 +49,14 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #include "XLSheet.h"
 #include "XLCellReference.h"
 #include "XLCell.h"
+#include "../implementation/headers/XLWorksheet.h"
 
 namespace OpenXLSX
 {
 
+    /**
+     * @brief
+     */
     class XLWorksheet: public XLSheet
     {
     public:
@@ -74,7 +78,7 @@ namespace OpenXLSX
          * @param ref An XLCellReference object with the address of the cell to get.
          * @return A reference to the requested XLCell object.
          */
-        XLCell Cell(const XLCellReference &ref) { return XLCell(static_cast<Impl::XLWorksheet&>(*m_sheet).Cell(ref)); }
+        XLCell Cell(const XLCellReference &ref) { return XLCell(static_cast<Impl::XLWorksheet>(*m_sheet).Cell(ref)); }
 
         /**
          * @brief Get a pointer to the XLCell object for the given cell reference.

@@ -46,11 +46,13 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #ifndef OPENXLSX_ALL_XLCELL_H
 #define OPENXLSX_ALL_XLCELL_H
 
-#include "../implementation/headers/XLCell.h"
+//#include "../implementation/headers/XLCell.h"
 #include "XLCellRange.h"
 #include "XLCellReference.h"
+
 namespace OpenXLSX
 {
+    class Impl::XLCell;
 
     class XLCell
     {

@@ -52,7 +52,9 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
 namespace OpenXLSX
 {
-
+    /**
+     * @brief
+     */
     class XLCellIterator
     {
     public:

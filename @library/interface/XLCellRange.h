@@ -51,6 +51,9 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 #include "XLCellIterator.h"
 namespace OpenXLSX {
 
+    /**
+     * @brief
+     */
     class XLCellRange
     {
     public:

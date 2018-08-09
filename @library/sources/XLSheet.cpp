@@ -27,7 +27,7 @@ XLSheet::XLSheet(XLWorkbook &parent,
       m_sheetState(XLSheetState::Visible),
       m_nodeInWorkbook(parent.SheetNode(name)),
       m_nodeInApp(parent.ParentDocument()->m_docAppProperties->SheetNameNode(name)),
-      m_nodeInContentTypes(parent.ParentDocument()->ContentItem("/" + filepath)),
+      m_nodeInContentTypes(&parent.ParentDocument()->ContentItem("/" + filepath)),
       m_nodeInWorkbookRels(parent.Relationships()->RelationshipByTarget(filepath.substr(3)))
 {
 
@@ -112,7 +112,7 @@ void XLSheet::Delete()
 {
 
     // Delete the node in AppProperties.
-    ParentDocument()->AppProperties()->DeleteSheetName(m_sheetName);
+    ParentDocument()->AppProperties().DeleteSheetName(m_sheetName);
     m_nodeInApp = XMLNode();
 
     // Delete the item in content_types.xml

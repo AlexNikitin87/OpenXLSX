@@ -365,20 +365,20 @@ XMLNode XLDocument::SheetNameNode(const std::string &sheetName)
 /**
  * @details Get a pointer to the content item in the [Content_Types].xml file.
  */
-XLContentItem *XLDocument::ContentItem(const std::string &path)
+XLContentItem &XLDocument::ContentItem(const std::string &path)
 {
-    return m_contentTypes->ContentItem(path);
+    return *m_contentTypes->ContentItem(path);
 }
 
 /**
  * @details Ad a new ContentItem and return the resulting object.
  */
-XLContentItem *XLDocument::AddContentItem(const std::string &contentPath,
+XLContentItem & XLDocument::AddContentItem(const std::string &contentPath,
                                            XLContentType contentType)
 {
 
     m_contentTypes->addOverride(contentPath, contentType);
-    return m_contentTypes->ContentItem(contentPath);
+    return *m_contentTypes->ContentItem(contentPath);
 }
 
 /**
@@ -410,33 +410,33 @@ void XLDocument::DeleteXMLFile(const std::string &path)
 /**
  * @details Get a pointer to the XLAppProperties object
  */
-XLAppProperties *XLDocument::AppProperties()
+XLAppProperties & XLDocument::AppProperties()
 {
-    return m_docAppProperties.get();
+    return *m_docAppProperties;
 }
 
 /**
  * @details Get a pointer to the (const) XLAppProperties object
  */
-const XLAppProperties *XLDocument::AppProperties() const
+const XLAppProperties & XLDocument::AppProperties() const
 {
-    return m_docAppProperties.get();
+    return *m_docAppProperties;
 }
 
 /**
  * @details Get a pointer to the XLCoreProperties object
  */
-XLCoreProperties *XLDocument::CoreProperties()
+XLCoreProperties & XLDocument::CoreProperties()
 {
-    return m_docCoreProperties.get();
+    return *m_docCoreProperties;
 }
 
 /**
  * @details Get a pointer to the (const) XLCoreProperties object
  */
-const XLCoreProperties * XLDocument::CoreProperties() const
+const XLCoreProperties & XLDocument::CoreProperties() const
 {
-    return m_docCoreProperties.get();
+    return *m_docCoreProperties;
 }
 
 

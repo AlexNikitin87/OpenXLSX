@@ -264,7 +264,7 @@ namespace OpenXLSX
          * @param path A std::string with the relative path to the file in question.
          * @return A pointer to the XLContentItem.
          */
-        XLContentItem *ContentItem(const std::string &path);
+        XLContentItem &ContentItem(const std::string &path);
 
         /**
          * @brief
@@ -272,31 +272,31 @@ namespace OpenXLSX
          * @param contentType
          * @return
          */
-        XLContentItem *AddContentItem(const std::string &contentPath, XLContentType contentType);
+        XLContentItem &AddContentItem(const std::string &contentPath, XLContentType contentType);
 
         /**
          * @brief Getter method for the App Properties object.
          * @return A pointer to the XLDocAppProperties object.
          */
-        XLAppProperties *AppProperties();
+        XLAppProperties &AppProperties();
 
         /**
          * @brief Getter method for the App Properties object.
          * @return A pointer to the const XLDocAppProperties object.
          */
-        const XLAppProperties *AppProperties() const;
+        const XLAppProperties &AppProperties() const;
 
         /**
          * @brief Getter method for the Core Properties object.
          * @return A pointer to the XLDocCoreProperties object.
          */
-        XLCoreProperties *CoreProperties();
+        XLCoreProperties &CoreProperties();
 
         /**
          * @brief Getter method for the Core Properties object.
          * @return A pointer to the const XLDocCoreProperties object.
          */
-        const XLCoreProperties *CoreProperties() const;
+        const XLCoreProperties &CoreProperties() const;
 
     private:
 

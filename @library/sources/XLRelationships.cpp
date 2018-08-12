@@ -67,7 +67,7 @@ void XLRelationshipItem::Delete()
 /**
  * @details Creates a XLRelationships object, which will read the XML file with the given path
  */
-XLRelationships::XLRelationships(XLDocument &parent,
+XLRelationships::XLRelationships(XLDocumentImpl &parent,
                                  const std::string &filePath)
     : XLAbstractXMLFile(parent, filePath),
       XLSpreadsheetElement(parent),

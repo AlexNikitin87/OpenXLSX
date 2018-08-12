@@ -253,7 +253,7 @@ namespace OpenXLSX
 
     private:
 
-        XLDocument *m_parentDocument; /**< A pointer to the parent XLDocument object. */
+        XLDocumentImpl *m_parentDocument; /**< A pointer to the parent XLDocument object. */
         const XLWorkbook *m_parentWorkbook; /**< A pointer to the parent XLWorkbook object. */
         XLWorksheet *m_parentWorksheet; /**< A pointer to the parent XLWorksheet object. */
 

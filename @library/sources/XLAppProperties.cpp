@@ -13,7 +13,7 @@ using namespace OpenXLSX;
 /**
  * @details
  */
-XLAppProperties::XLAppProperties(XLDocument &parent,
+XLAppProperties::XLAppProperties(XLDocumentImpl &parent,
                                  const std::string &filePath)
     : XLAbstractXMLFile(parent, filePath),
       XLSpreadsheetElement(parent),

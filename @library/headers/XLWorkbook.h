@@ -94,7 +94,7 @@ namespace OpenXLSX
          * @param filePath The relative path to the underlying XML file.
          * @note Do not create an XLWorkbook object directly. Get access through the an XLDocument object.
          */
-        explicit XLWorkbook(XLDocument &parent, const std::string &filePath);
+        explicit XLWorkbook(XLDocumentImpl &parent, const std::string &filePath);
 
         /**
          * @brief Copy Constructor.

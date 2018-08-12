@@ -54,7 +54,7 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 
 namespace OpenXLSX
 {
-    class XLDocument;
+    class XLDocumentImpl;
 
 //======================================================================================================================
 //========== XLAbstractXMLFile Class ===================================================================================
@@ -83,7 +83,7 @@ namespace OpenXLSX
          * @param filePath The path of the XML file, relative to the root.
          * @param xmlData An std::string object with the XML data to be represented by the object.
          */
-        explicit XLAbstractXMLFile(XLDocument &parent,
+        explicit XLAbstractXMLFile(XLDocumentImpl &parent,
                                    const std::string &filePath,
                                    const std::string &xmlData = "");
 
@@ -186,7 +186,7 @@ namespace OpenXLSX
 
     private:
 
-        XLDocument &m_parentDocument; /**< */
+        XLDocumentImpl &m_parentDocument; /**< */
         std::string m_path; /**< */
 
         mutable std::map<std::string, XLAbstractXMLFile *> m_childXmlDocuments; /**< A std::map with the child XML documents. */

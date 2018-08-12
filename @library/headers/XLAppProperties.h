@@ -83,7 +83,7 @@ namespace OpenXLSX
          * @param parent
          * @param filePath
          */
-        explicit XLAppProperties(XLDocument &parent,
+        explicit XLAppProperties(XLDocumentImpl &parent,
                                  const std::string &filePath);
 
         /**

@@ -49,7 +49,7 @@ YM      M9  MM    MM MM       MM    MM   d'  `MM.    MM            MM   d'  `MM.
 namespace OpenXLSX
 {
     class XLWorkbook;
-    class XLDocument;
+    class XLDocumentImpl;
 
 //======================================================================================================================
 //========== XLSpreadsheetElement Class ================================================================================
@@ -72,7 +72,7 @@ namespace OpenXLSX
          * @brief
          * @param parent
          */
-        explicit XLSpreadsheetElement(XLDocument &parent);
+        explicit XLSpreadsheetElement(XLDocumentImpl &parent);
 
         /**
          * @brief
@@ -121,20 +121,20 @@ namespace OpenXLSX
          * @brief
          * @return
          */
-        virtual XLDocument *ParentDocument();
+        virtual XLDocumentImpl *ParentDocument();
 
         /**
          * @brief
          * @return
          */
-        virtual const XLDocument *ParentDocument() const;
+        virtual const XLDocumentImpl *ParentDocument() const;
 
 //----------------------------------------------------------------------------------------------------------------------
 //           Private Member Variables
 //----------------------------------------------------------------------------------------------------------------------
 
     private:
-        XLDocument *m_document; /**< */
+        XLDocumentImpl *m_document; /**< */
         XLWorkbook *m_workbook; /**< */
 
     };

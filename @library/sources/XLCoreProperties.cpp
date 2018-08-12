@@ -11,7 +11,7 @@ using namespace OpenXLSX;
 /**
  * @details
  */
-XLCoreProperties::XLCoreProperties(XLDocument &parent,
+XLCoreProperties::XLCoreProperties(XLDocumentImpl &parent,
                                    const std::string &filePath)
     : XLAbstractXMLFile(parent, filePath),
       XLSpreadsheetElement(parent),

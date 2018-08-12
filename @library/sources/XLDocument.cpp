@@ -16,7 +16,7 @@ using namespace OpenXLSX;
 /**
  * @details The default constructor, with no arguments.
  */
-XLDocument::XLDocument()
+XLDocumentImpl::XLDocumentImpl()
     : m_filePath(""),
       m_documentRelationships(nullptr),
       m_contentTypes(nullptr),
@@ -32,7 +32,7 @@ XLDocument::XLDocument()
 /**
  * @details An alternative constructor, taking a std::string with the path to the .xlsx package as an argument.
  */
-XLDocument::XLDocument(const std::string &docPath)
+XLDocumentImpl::XLDocumentImpl(const std::string &docPath)
     : m_filePath(""),
       m_documentRelationships(nullptr),
       m_contentTypes(nullptr),
@@ -49,7 +49,7 @@ XLDocument::XLDocument(const std::string &docPath)
 /**
  * @details The destructor calls the closeDocument method before the object is destroyed.
  */
-XLDocument::~XLDocument()
+XLDocumentImpl::~XLDocumentImpl()
 {
     CloseDocument();
 }
@@ -61,7 +61,7 @@ XLDocument::~XLDocument()
  * - Unzip the contents of the package to the temporary folder.
  * - load the contents into the datastructure for manipulation.
  */
-void XLDocument::OpenDocument(const string &fileName)
+void XLDocumentImpl::OpenDocument(const string &fileName)
 {
     // Check if a document is already open. If yes, close it.
     if(m_archive && m_archive->isOpen()) CloseDocument();
@@ -83,7 +83,7 @@ void XLDocument::OpenDocument(const string &fileName)
 /**
  * @details Create a new document. This is done by saving the data in XLTemplate.h in binary format.
  */
-void XLDocument::CreateDocument(const std::string &fileName)
+void XLDocumentImpl::CreateDocument(const std::string &fileName)
 {
     std::ofstream outfile(fileName, std::ios::binary);
     outfile.write(reinterpret_cast<char const *>(excelTemplate), excelTemplateSize);
@@ -96,7 +96,7 @@ void XLDocument::CreateDocument(const std::string &fileName)
  * @details The document is closed by deleting the temporary folder structure.
  * @todo Consider deleting all the internal objects as well.
  */
-void XLDocument::CloseDocument()
+void XLDocumentImpl::CloseDocument()
 {
     if(m_archive) m_archive->discard();
     m_archive.reset(nullptr);
@@ -113,7 +113,7 @@ void XLDocument::CloseDocument()
 /**
  * @details Save the document with the same name. The existing file will be overwritten.
  */
-bool XLDocument::SaveDocument()
+bool XLDocumentImpl::SaveDocument()
 {
     return SaveDocumentAs(m_filePath);
 }
@@ -123,7 +123,7 @@ bool XLDocument::SaveDocument()
  * is that changes to the document may invalidate the calcChain.xml file. Deleting will force Excel to re-create the
  * file. This will happen automatically, without the user noticing.
  */
-bool XLDocument::SaveDocumentAs(const string &fileName)
+bool XLDocumentImpl::SaveDocumentAs(const string &fileName)
 {
     // If the filename is different than the name of the current file, copy the current file to new destination,
     // close the current zip file and open the new one.
@@ -157,7 +157,7 @@ bool XLDocument::SaveDocumentAs(const string &fileName)
  * @details
  * @todo Currently, this method returns the full path, which is not the intention.
  */
-std::string XLDocument::DocumentName() const
+std::string XLDocumentImpl::DocumentName() const
 {
     return m_filePath;
 }
@@ -165,7 +165,7 @@ std::string XLDocument::DocumentName() const
 /**
  * @details
  */
-std::string XLDocument::DocumentPath() const
+std::string XLDocumentImpl::DocumentPath() const
 {
     return m_filePath;
 }
@@ -173,7 +173,7 @@ std::string XLDocument::DocumentPath() const
 /**
  * @details Get a pointer to the underlying XLWorkbook object.
  */
-XLWorkbook &XLDocument::Workbook()
+XLWorkbook &XLDocumentImpl::Workbook()
 {
     return *m_workbook;
 }
@@ -181,7 +181,7 @@ XLWorkbook &XLDocument::Workbook()
 /**
  * @details Get a const pointer to the underlying XLWorkbook object.
  */
-const XLWorkbook &XLDocument::Workbook() const
+const XLWorkbook &XLDocumentImpl::Workbook() const
 {
     return *m_workbook;
 }
@@ -189,7 +189,7 @@ const XLWorkbook &XLDocument::Workbook() const
 /**
  * @details Get the value for a property.
  */
-std::string XLDocument::GetProperty(XLDocumentProperties theProperty) const
+std::string XLDocumentImpl::GetProperty(XLDocumentProperties theProperty) const
 {
     switch (theProperty) {
         case XLDocumentProperties::Application :
@@ -260,7 +260,7 @@ std::string XLDocument::GetProperty(XLDocumentProperties theProperty) const
 /**
  * @details Set the value for a property.
  */
-void XLDocument::SetProperty(XLDocumentProperties theProperty,
+void XLDocumentImpl::SetProperty(XLDocumentProperties theProperty,
                              const string &value)
 {
     switch (theProperty) {
@@ -349,7 +349,7 @@ void XLDocument::SetProperty(XLDocumentProperties theProperty,
 /**
  * @details Delete a property
  */
-void XLDocument::DeleteProperty(const string &propertyName)
+void XLDocumentImpl::DeleteProperty(const string &propertyName)
 {
     m_docAppProperties->DeleteProperty(propertyName);
 }
@@ -357,7 +357,7 @@ void XLDocument::DeleteProperty(const string &propertyName)
 /**
  * @details Get a pointer to the sheet node in the app.xml file.
  */
-XMLNode XLDocument::SheetNameNode(const std::string &sheetName)
+XMLNode XLDocumentImpl::SheetNameNode(const std::string &sheetName)
 {
     return m_docAppProperties->SheetNameNode(sheetName);
 }
@@ -365,7 +365,7 @@ XMLNode XLDocument::SheetNameNode(const std::string &sheetName)
 /**
  * @details Get a pointer to the content item in the [Content_Types].xml file.
  */
-XLContentItem &XLDocument::ContentItem(const std::string &path)
+XLContentItem &XLDocumentImpl::ContentItem(const std::string &path)
 {
     return *m_contentTypes->ContentItem(path);
 }
@@ -373,7 +373,7 @@ XLContentItem &XLDocument::ContentItem(const std::string &path)
 /**
  * @details Ad a new ContentItem and return the resulting object.
  */
-XLContentItem & XLDocument::AddContentItem(const std::string &contentPath,
+XLContentItem & XLDocumentImpl::AddContentItem(const std::string &contentPath,
                                            XLContentType contentType)
 {
 
@@ -384,7 +384,7 @@ XLContentItem & XLDocument::AddContentItem(const std::string &contentPath,
 /**
  * @details Add a xml file to the package.
  */
-void XLDocument::AddOrReplaceXMLFile(const std::string &path,
+void XLDocumentImpl::AddOrReplaceXMLFile(const std::string &path,
                                      const std::string &content)
 {
     m_xmlData.push_back(content);
@@ -394,7 +394,7 @@ void XLDocument::AddOrReplaceXMLFile(const std::string &path,
 /**
  * @details
  */
-std::string XLDocument::GetXMLFile(const std::string &path)
+std::string XLDocumentImpl::GetXMLFile(const std::string &path)
 {
     return m_archive->getEntry(path).readAsText();
 }
@@ -402,7 +402,7 @@ std::string XLDocument::GetXMLFile(const std::string &path)
 /**
  * @details
  */
-void XLDocument::DeleteXMLFile(const std::string &path)
+void XLDocumentImpl::DeleteXMLFile(const std::string &path)
 {
     m_archive->deleteEntry(path);
 }
@@ -410,7 +410,7 @@ void XLDocument::DeleteXMLFile(const std::string &path)
 /**
  * @details Get a pointer to the XLAppProperties object
  */
-XLAppProperties & XLDocument::AppProperties()
+XLAppProperties & XLDocumentImpl::AppProperties()
 {
     return *m_docAppProperties;
 }
@@ -418,7 +418,7 @@ XLAppProperties & XLDocument::AppProperties()
 /**
  * @details Get a pointer to the (const) XLAppProperties object
  */
-const XLAppProperties & XLDocument::AppProperties() const
+const XLAppProperties & XLDocumentImpl::AppProperties() const
 {
     return *m_docAppProperties;
 }
@@ -426,7 +426,7 @@ const XLAppProperties & XLDocument::AppProperties() const
 /**
  * @details Get a pointer to the XLCoreProperties object
  */
-XLCoreProperties & XLDocument::CoreProperties()
+XLCoreProperties & XLDocumentImpl::CoreProperties()
 {
     return *m_docCoreProperties;
 }
@@ -434,7 +434,7 @@ XLCoreProperties & XLDocument::CoreProperties()
 /**
  * @details Get a pointer to the (const) XLCoreProperties object
  */
-const XLCoreProperties & XLDocument::CoreProperties() const
+const XLCoreProperties & XLDocumentImpl::CoreProperties() const
 {
     return *m_docCoreProperties;
 }

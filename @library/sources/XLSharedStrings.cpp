@@ -12,7 +12,7 @@ using namespace OpenXLSX;
  * @details Constructs a new XLSharedStrings object. Only one (common) object is allowed per XLDocument instance.
  * A filepath to the underlying XML file must be provided.
  */
-XLSharedStrings::XLSharedStrings(XLDocument &parent,
+XLSharedStrings::XLSharedStrings(XLDocumentImpl &parent,
                                  const std::string &filePath)
     : XLAbstractXMLFile(parent, filePath),
       XLSpreadsheetElement(parent),

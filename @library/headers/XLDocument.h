@@ -111,7 +111,7 @@ namespace OpenXLSX
      * closing and saving the document.\n<b><em>The XLDocument is the entrypoint for clients
      * using the RapidXLSX library.</em></b>
      */
-    class XLDocument
+    class XLDocumentImpl
     {
         friend class XLAbstractXMLFile;
         friend class XLWorkbook;
@@ -127,13 +127,13 @@ namespace OpenXLSX
         /**
          * @brief Constructor. The default constructor with no arguments.
          */
-        explicit XLDocument();
+        explicit XLDocumentImpl();
 
         /**
          * @brief Constructor. An alternative constructor, taking the path to the .xlsx file as an argument.
          * @param docPath A std::string with the path to the .xlsx file.
          */
-        explicit XLDocument(const std::string &docPath);
+        explicit XLDocumentImpl(const std::string &docPath);
 
         /**
          * @brief Copy constructor
@@ -142,12 +142,12 @@ namespace OpenXLSX
          * @todo Consider implementing this, as it may make sense to copy the entire document, although it may not make
          * sense to copy individual elements (e.g. the XLWorkbook object). Alternatively, implement a 'Clone' function.
          */
-        XLDocument(const XLDocument &other) = delete;
+        XLDocumentImpl(const XLDocument &other) = delete;
 
         /**
          * @brief Destructor
          */
-        virtual ~XLDocument();
+        virtual ~XLDocumentImpl();
 
         /**
          * @brief Open the .xlsx file with the given path
@@ -225,7 +225,7 @@ namespace OpenXLSX
          */
         void DeleteProperty(const std::string &propertyName);
 
-        //----------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------
 //           Protected Member Functions
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -328,13 +328,121 @@ namespace OpenXLSX
 
     template<typename T>
     typename std::enable_if_t<std::is_base_of<XLAbstractXMLFile, T>::value, std::unique_ptr<T>>
-    XLDocument::CreateItem(const std::string &target)
+    XLDocumentImpl::CreateItem(const std::string &target)
     {
         if (!m_documentRelationships->TargetExists(target)) throw XLException("Target does not exist!");
         auto result = std::make_unique<T>(*this, m_documentRelationships->RelationshipByTarget(target)->Target());
         m_xmlFiles[result->FilePath()] = result.get();
         return std::move(result);
     }
+
+    class XLDocument
+    {
+    public:
+        /**
+         * @brief Constructor. The default constructor with no arguments.
+         */
+        explicit XLDocument() : m_document(std::make_shared<XLDocumentImpl>()) {}
+
+        /**
+         * @brief Constructor. An alternative constructor, taking the path to the .xlsx file as an argument.
+         * @param docPath A std::string with the path to the .xlsx file.
+         */
+        explicit XLDocument(const std::string &docPath) : m_document(std::make_shared<XLDocumentImpl>(docPath)) {}
+
+        /**
+         * @brief Copy constructor
+         * @param other The object to copy
+         * @note Copy constructor explicitly deleted.
+         * @todo Consider implementing this, as it may make sense to copy the entire document, although it may not make
+         * sense to copy individual elements (e.g. the XLWorkbook object). Alternatively, implement a 'Clone' function.
+         */
+        XLDocument(const XLDocument &other) = default;
+
+        /**
+         * @brief Destructor
+         */
+        virtual ~XLDocument() = default;
+
+        /**
+         * @brief Open the .xlsx file with the given path
+         * @param fileName The path of the .xlsx file to open
+         * @todo Consider opening the zipped files as streams, instead of unpacking to a temporary folder
+         */
+        void OpenDocument(const std::string &fileName) { m_document->OpenDocument(fileName); }
+
+        /**
+         * @brief Create a new .xlsx file with the given name.
+         * @param fileName The path of the new .xlsx file.
+         */
+        void CreateDocument(const std::string &fileName) { m_document->CreateDocument(fileName); }
+
+        /**
+         * @brief Close the current document
+         */
+        void CloseDocument() { m_document->CloseDocument(); }
+
+        /**
+         * @brief Save the current document using the current filename, overwriting the existing file.
+         * @return true if successful; otherwise false.
+         */
+        bool SaveDocument() { return m_document->SaveDocument(); }
+
+        /**
+         * @brief Save the document with a new name. If a file exists with that name, it will be overwritten.
+         * @param fileName The path of the file
+         * @return true if successful; otherwise false.
+         */
+        bool SaveDocumentAs(const std::string &fileName) { return m_document->SaveDocumentAs(fileName); }
+
+        /**
+         * @brief Get the filename of the current document, e.g. "spreadsheet.xlsx".
+         * @return A std::string with the filename.
+         */
+        std::string DocumentName() const { return m_document->DocumentName(); }
+
+        /**
+         * @brief Get the full path of the current document, e.g. "drive/blah/spreadsheet.xlsx"
+         * @return A std::string with the path.
+         */
+        std::string DocumentPath() const { return m_document->DocumentPath(); }
+
+        /**
+         * @brief Get the underlying workbook object.
+         * @return A pointer to the XLWorkbook object
+         */
+        XLWorkbook &Workbook() { return m_document->Workbook(); }
+
+        /**
+         * @brief Get the underlying workbook object, as a const object.
+         * @return A const pointer to the XLWorkbook object.
+         */
+        const XLWorkbook &Workbook() const { return m_document->Workbook(); }
+
+        /**
+         * @brief Get the requested document property.
+         * @param theProperty The name of the property to get.
+         * @return The property as a string
+         */
+        std::string GetProperty(XLDocumentProperties theProperty) const { return m_document->GetProperty(theProperty); }
+
+        /**
+         * @brief Set a property
+         * @param theProperty The property to set.
+         * @param value The value of the property, as a string
+         */
+        void SetProperty(XLDocumentProperties theProperty,
+                         const std::string &value) { m_document->SetProperty(theProperty, value); }
+
+        /**
+         * @brief Delete the property from the document
+         * @param propertyName The property to delete from the document
+         */
+        void DeleteProperty(const std::string &propertyName) { m_document->DeleteProperty(propertyName); }
+
+    private:
+        std::shared_ptr<XLDocumentImpl> m_document;
+    };
 
 }
 

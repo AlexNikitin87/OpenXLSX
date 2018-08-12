@@ -101,7 +101,7 @@ void XLContentItem::DeleteItem()
 /**
  * @details
  */
-XLContentTypes::XLContentTypes(XLDocument &parent,
+XLContentTypes::XLContentTypes(XLDocumentImpl &parent,
                                const string &filePath)
     : XLAbstractXMLFile(parent, filePath),
       XLSpreadsheetElement(parent),

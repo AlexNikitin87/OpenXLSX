@@ -21,7 +21,7 @@ XMLNode XLStyles::s_colors = XMLNode();
 /**
  * @details
  */
-XLStyles::XLStyles(XLDocument &parent,
+XLStyles::XLStyles(XLDocumentImpl &parent,
                    const std::string &filePath)
     : XLAbstractXMLFile(parent, filePath),
       XLSpreadsheetElement(parent)

@@ -232,7 +232,7 @@ namespace OpenXLSX
          * @param parent A pointer to the parent XLDocument object.
          * @param filePath The (relative) path to the relationship file.
          */
-        explicit XLRelationships(XLDocument &parent,
+        explicit XLRelationships(XLDocumentImpl &parent,
                                  const std::string &filePath);
 
         /**

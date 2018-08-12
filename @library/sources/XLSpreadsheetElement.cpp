@@ -10,7 +10,7 @@ namespace OpenXLSX
     /**
      * @details
      */
-    XLSpreadsheetElement::XLSpreadsheetElement(XLDocument &parent)
+    XLSpreadsheetElement::XLSpreadsheetElement(XLDocumentImpl &parent)
         : m_document(&parent),
           m_workbook(&parent.Workbook())
     {
@@ -36,15 +36,15 @@ namespace OpenXLSX
     /**
      * @details
      */
-    XLDocument * XLSpreadsheetElement::ParentDocument()
+    XLDocumentImpl * XLSpreadsheetElement::ParentDocument()
     {
-        return const_cast<XLDocument *>(static_cast<const XLSpreadsheetElement *>(this)->ParentDocument());
+        return const_cast<XLDocumentImpl *>(static_cast<const XLSpreadsheetElement *>(this)->ParentDocument());
     }
 
     /**
      * @details
      */
-    const XLDocument * XLSpreadsheetElement::ParentDocument() const
+    const XLDocumentImpl * XLSpreadsheetElement::ParentDocument() const
     {
         return m_document;
     }

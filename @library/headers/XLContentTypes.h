@@ -206,7 +206,7 @@ namespace OpenXLSX
          * @param parent
          * @param filePath
          */
-        explicit XLContentTypes(XLDocument &parent,
+        explicit XLContentTypes(XLDocumentImpl &parent,
                                 const std::string &filePath);
 
         /**

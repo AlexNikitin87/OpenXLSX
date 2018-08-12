@@ -14,7 +14,7 @@ using namespace OpenXLSX;
  * the same path in the .zip file will be overwritten upon saving of the document. If no xmlData is provided,
  * the data will be read from the .zip file, using the given path.
  */
-XLAbstractXMLFile::XLAbstractXMLFile(XLDocument &parent,
+XLAbstractXMLFile::XLAbstractXMLFile(XLDocumentImpl &parent,
                                      const std::string &filePath,
                                      const std::string &xmlData)
     :   m_xmlDocument(make_unique<XMLDocument>()),
